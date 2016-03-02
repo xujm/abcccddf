@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--News View Controller-->
@@ -38,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPt-2c-fRo">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="560"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yao-0B-0v8">
                                         <rect key="frame" x="0.0" y="-271" width="600" height="804"/>
@@ -399,13 +400,44 @@
                                     <constraint firstItem="yao-0B-0v8" firstAttribute="top" secondItem="aPt-2c-fRo" secondAttribute="top" id="ypX-sn-RGv"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFR-pH-hV5">
+                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="写跟帖" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVi-lY-6Gh">
+                                        <rect key="frame" x="8" y="5" width="498" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZa-kk-ZHz">
+                                        <rect key="frame" x="514" y="5" width="30" height="30"/>
+                                        <state key="normal" title="发送">
+                                            <color key="titleColor" red="0.1974635793" green="0.55892184229999997" blue="0.90682264400000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" red="0.83151314350000005" green="0.83151314350000005" blue="0.83151314350000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96258044279999999" green="0.96258044279999999" blue="0.96258044279999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="oVi-lY-6Gh" firstAttribute="width" secondItem="HFR-pH-hV5" secondAttribute="width" multiplier="8.3:10" id="2iK-OY-PiR"/>
+                                    <constraint firstItem="oVi-lY-6Gh" firstAttribute="centerY" secondItem="HFR-pH-hV5" secondAttribute="centerY" id="HYA-Fv-w1L"/>
+                                    <constraint firstItem="eZa-kk-ZHz" firstAttribute="leading" secondItem="oVi-lY-6Gh" secondAttribute="trailing" constant="8" id="K1t-H2-3oD"/>
+                                    <constraint firstItem="oVi-lY-6Gh" firstAttribute="leading" secondItem="HFR-pH-hV5" secondAttribute="leading" constant="8" id="pVi-5C-25J"/>
+                                    <constraint firstItem="eZa-kk-ZHz" firstAttribute="centerY" secondItem="HFR-pH-hV5" secondAttribute="centerY" id="sfq-tu-M0g"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9w9-8Z-WOF" firstAttribute="top" secondItem="aPt-2c-fRo" secondAttribute="bottom" id="AAt-g9-jfq"/>
+                            <constraint firstItem="HFR-pH-hV5" firstAttribute="leading" secondItem="YIp-Hc-AHj" secondAttribute="leading" id="2jh-qW-y1p"/>
+                            <constraint firstItem="9w9-8Z-WOF" firstAttribute="top" secondItem="aPt-2c-fRo" secondAttribute="bottom" constant="40" id="AAt-g9-jfq"/>
+                            <constraint firstAttribute="trailing" secondItem="HFR-pH-hV5" secondAttribute="trailing" id="Ml9-pa-dj0"/>
+                            <constraint firstItem="9w9-8Z-WOF" firstAttribute="top" secondItem="HFR-pH-hV5" secondAttribute="bottom" id="eZM-bM-eyp"/>
                             <constraint firstItem="aPt-2c-fRo" firstAttribute="leading" secondItem="YIp-Hc-AHj" secondAttribute="leading" id="fF7-hj-jdW"/>
                             <constraint firstAttribute="trailing" secondItem="aPt-2c-fRo" secondAttribute="trailing" id="npa-1f-1GV"/>
                             <constraint firstItem="aPt-2c-fRo" firstAttribute="top" secondItem="hK9-IT-WEW" secondAttribute="bottom" id="pHm-H6-GWx"/>
+                            <constraint firstItem="HFR-pH-hV5" firstAttribute="top" secondItem="aPt-2c-fRo" secondAttribute="bottom" id="xe1-89-cvL"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -413,6 +445,8 @@
                         <outlet property="imageView2" destination="nUX-y0-LWY" id="k0h-w1-tkA"/>
                         <outlet property="imageView3" destination="uiP-4x-jdG" id="Yoo-rk-BRw"/>
                         <outlet property="imageview1" destination="y6o-1p-q1O" id="8Ho-qK-PsQ"/>
+                        <outlet property="sendBtn" destination="eZa-kk-ZHz" id="4Kx-eW-HGJ"/>
+                        <outlet property="textView" destination="HFR-pH-hV5" id="rUt-0F-hhq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibR-II-281" userLabel="First Responder" sceneMemberID="firstResponder"/>
