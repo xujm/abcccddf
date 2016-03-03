@@ -1,41 +1,31 @@
 //
-//  CKNDetailViewController.m
+//  CKNCommentViewController.m
 //  ConsultNews
 //
-//  Created by Lx on 16/3/2.
+//  Created by Lx on 16/3/3.
 //  Copyright © 2016年 Lx. All rights reserved.
 //
 
-#import "CKNDetailViewController.h"
 #import "CKNCommentViewController.h"
+#import "CKNCommentTableViewCell.h"
 
-@interface CKNDetailViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *imageview1;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView2;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView3;
+static NSString * const kCKNCommentTableViewCell = @"CKNCommentTableViewCell";
 
-@property (weak, nonatomic) IBOutlet UIView *textView;
-@property (weak, nonatomic) IBOutlet UIButton *sendBtn;
+@interface CKNCommentViewController ()<UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *commentView;
 
 @end
 
-@implementation CKNDetailViewController
+@implementation CKNCommentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.sendBtn.enabled = NO;
-    
-    self.imageview1.layer.cornerRadius = 15;
-    self.imageview1.clipsToBounds = YES;
-    
-    self.imageView2.layer.cornerRadius = 15;
-    self.imageView2.clipsToBounds = YES;
-    
-    self.imageView3.layer.cornerRadius = 15;
-    self.imageView3.clipsToBounds = YES;
+    [self.tableView registerNib:[UINib nibWithNibName:@"CKNCommentTableViewCell" bundle:nil] forCellReuseIdentifier:kCKNCommentTableViewCell];
+    self.tableView.rowHeight = 70;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //注册点击事件，点击背景，隐藏键盘
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose)];
@@ -45,25 +35,6 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [nc addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn addTarget:self action:@selector(goComment) forControlEvents:UIControlEventTouchUpInside];
-    [btn setBackgroundImage:[UIImage imageNamed:@"channel_open_icon"] forState:UIControlStateNormal];
-    [btn sizeToFit];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goComment)];
-    self.commentView.userInteractionEnabled = YES;
-    [self.commentView addGestureRecognizer:tap];
-}
-
-- (void)goComment
-{
-    CKNCommentViewController *cvc = [[UIStoryboard storyboardWithName:@"News" bundle:nil] instantiateViewControllerWithIdentifier:@"CKNCommentViewController"];
-    [self.navigationController pushViewController:cvc animated:YES];
-    
-    
 }
 
 //收到键盘弹出通知后的响应
@@ -83,9 +54,9 @@
     UIViewAnimationOptions options = [dict[UIKeyboardAnimationCurveUserInfoKey] integerValue] << 16;
     //添加动画
     [UIView animateWithDuration:duration delay:0 options:options animations:^{
-        _textView.transform = CGAffineTransformMakeTranslation(0, -offsetY);
+        _commentView.transform = CGAffineTransformMakeTranslation(0, -offsetY);
     } completion:^(BOOL finished) {
-        self.sendBtn.enabled = YES;
+//        self.sendBtn.enabled = YES;
     }];
     
 }
@@ -98,9 +69,9 @@
     UIViewAnimationOptions options = [dict[UIKeyboardAnimationCurveUserInfoKey] integerValue] << 16;
     //CGAffineTransformIdentity是置位，可将改变的transform还原
     [UIView animateWithDuration:duration delay:0 options:options animations:^{
-        _textView.transform = CGAffineTransformIdentity;
+        _commentView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        self.sendBtn.enabled = NO;
+//        self.sendBtn.enabled = NO;
     }];
 }
 
@@ -108,6 +79,24 @@
 - (void)tapToClose {
     //输入框失去焦点
     [self.view endEditing:YES];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 20;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CKNCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCKNCommentTableViewCell forIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

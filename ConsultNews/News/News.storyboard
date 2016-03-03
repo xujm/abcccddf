@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPt-2c-fRo">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="560"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="516"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yao-0B-0v8">
                                         <rect key="frame" x="0.0" y="-271" width="600" height="804"/>
@@ -50,7 +50,7 @@
                                                     <constraint firstAttribute="height" constant="21" id="6ky-Fj-yIa"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03-01 21:37   金羊网-新快报" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBR-zQ-0Pf">
@@ -401,7 +401,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFR-pH-hV5">
-                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
+                                <rect key="frame" x="0.0" y="516" width="600" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="写跟帖" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVi-lY-6Gh">
                                         <rect key="frame" x="8" y="5" width="498" height="30"/>
@@ -440,8 +440,11 @@
                             <constraint firstItem="HFR-pH-hV5" firstAttribute="top" secondItem="aPt-2c-fRo" secondAttribute="bottom" id="xe1-89-cvL"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="commentView" destination="4sW-LJ-NDZ" id="TTs-l4-Ziy"/>
                         <outlet property="imageView2" destination="nUX-y0-LWY" id="k0h-w1-tkA"/>
                         <outlet property="imageView3" destination="uiP-4x-jdG" id="Yoo-rk-BRw"/>
                         <outlet property="imageview1" destination="y6o-1p-q1O" id="8Ho-qK-PsQ"/>
@@ -452,6 +455,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibR-II-281" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="244" y="378"/>
+        </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="Dyt-ur-5Mx">
+            <objects>
+                <viewController storyboardIdentifier="CKNCommentViewController" automaticallyAdjustsScrollViewInsets="NO" id="CpX-dF-f9U" customClass="CKNCommentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IbH-Pj-YNh"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ae0-LM-QO8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="maT-00-V0I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8lK-cg-DBH">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="560"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="CpX-dF-f9U" id="ldi-NG-qIh"/>
+                                    <outlet property="delegate" destination="CpX-dF-f9U" id="fgC-07-a2W"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHB-Ju-ZJR" userLabel="bottom">
+                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dal-BE-5Q1">
+                                        <rect key="frame" x="8" y="5" width="498" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVE-CP-Wkc">
+                                        <rect key="frame" x="514" y="5" width="30" height="30"/>
+                                        <state key="normal" title="发送">
+                                            <color key="titleColor" red="0.1974635793" green="0.55892184229999997" blue="0.90682264400000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96258044279999999" green="0.96258044279999999" blue="0.96258044279999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jVE-CP-Wkc" firstAttribute="leading" secondItem="Dal-BE-5Q1" secondAttribute="trailing" constant="8" id="KEs-oN-nGU"/>
+                                    <constraint firstItem="Dal-BE-5Q1" firstAttribute="width" secondItem="KHB-Ju-ZJR" secondAttribute="width" multiplier="8.3:10" id="XQ2-NH-3DD"/>
+                                    <constraint firstItem="jVE-CP-Wkc" firstAttribute="centerY" secondItem="KHB-Ju-ZJR" secondAttribute="centerY" id="a2I-Lv-BsW"/>
+                                    <constraint firstAttribute="height" constant="40" id="o77-q4-3up"/>
+                                    <constraint firstItem="Dal-BE-5Q1" firstAttribute="leading" secondItem="KHB-Ju-ZJR" secondAttribute="leading" constant="8" id="tcy-70-UZS"/>
+                                    <constraint firstItem="Dal-BE-5Q1" firstAttribute="centerY" secondItem="KHB-Ju-ZJR" secondAttribute="centerY" id="utf-WN-qGU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ae0-LM-QO8" firstAttribute="top" secondItem="KHB-Ju-ZJR" secondAttribute="bottom" id="0An-H9-vpX"/>
+                            <constraint firstItem="KHB-Ju-ZJR" firstAttribute="leading" secondItem="maT-00-V0I" secondAttribute="leading" id="Cxl-b2-dmc"/>
+                            <constraint firstItem="8lK-cg-DBH" firstAttribute="leading" secondItem="maT-00-V0I" secondAttribute="leading" id="F8O-uv-bQY"/>
+                            <constraint firstItem="KHB-Ju-ZJR" firstAttribute="top" secondItem="8lK-cg-DBH" secondAttribute="bottom" id="YQE-gh-xrd"/>
+                            <constraint firstAttribute="trailing" secondItem="8lK-cg-DBH" secondAttribute="trailing" id="ioh-yv-JY1"/>
+                            <constraint firstAttribute="trailing" secondItem="KHB-Ju-ZJR" secondAttribute="trailing" id="nqU-Ir-LRD"/>
+                            <constraint firstItem="8lK-cg-DBH" firstAttribute="top" secondItem="IbH-Pj-YNh" secondAttribute="bottom" id="quh-aT-xvg"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="commentView" destination="KHB-Ju-ZJR" id="Ijt-aZ-vV6"/>
+                        <outlet property="tableView" destination="8lK-cg-DBH" id="Cfy-e8-gNB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yBB-2t-WuB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="244" y="1057"/>
         </scene>
     </scenes>
     <resources>

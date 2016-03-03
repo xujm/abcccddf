@@ -18,8 +18,8 @@
     [super viewDidLoad];
     
     //导航栏Title样式
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
-                                                 }];
+//    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
+//                                                 }];
     
     //导航栏背景色
     self.navigationBar.barTintColor = UIColorFromRGB(0xcc3333);
