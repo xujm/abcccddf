@@ -24,7 +24,7 @@ static NSString * const kCKNCommentTableViewCell = @"CKNCommentTableViewCell";
     [super viewDidLoad];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CKNCommentTableViewCell" bundle:nil] forCellReuseIdentifier:kCKNCommentTableViewCell];
-    self.tableView.rowHeight = 70;
+    self.tableView.rowHeight = 60;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //注册点击事件，点击背景，隐藏键盘

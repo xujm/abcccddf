@@ -16,7 +16,7 @@
 }
 
 - (IBAction)click:(UIButton *)sender {
-    
+    sender.selected = !sender.selected;
 }
 
 
