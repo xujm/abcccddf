@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CKNHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contentview_sectionheader_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vCa-jv-KnN">
+                    <rect key="frame" x="0.0" y="5" width="70" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="vCa-jv-KnN" secondAttribute="height" multiplier="70:19" id="6bK-Fl-dak"/>
+                        <constraint firstAttribute="width" constant="70" id="V3r-NW-ciE"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="热门评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I25-UL-VJG">
+                    <rect key="frame" x="8" y="7" width="52" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.96258044279999999" green="0.96258044279999999" blue="0.96258044279999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vCa-jv-KnN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4tU-py-3AB"/>
+                <constraint firstItem="vCa-jv-KnN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5Og-8I-AEh"/>
+                <constraint firstItem="vCa-jv-KnN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="9TA-ow-KjC"/>
+                <constraint firstItem="I25-UL-VJG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="B0r-aS-RyX"/>
+                <constraint firstItem="I25-UL-VJG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="nTP-ag-a6X"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="textLabel" destination="I25-UL-VJG" id="cD0-jT-nRs"/>
+            </connections>
+            <point key="canvasLocation" x="245" y="412"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="contentview_sectionheader_bg" width="85" height="24"/>
+    </resources>
+</document>

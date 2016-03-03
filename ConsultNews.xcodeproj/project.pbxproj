@@ -27,6 +27,8 @@
 		E98A32B21C87CF7E001DE4FD /* CKNCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98A32B11C87CF7E001DE4FD /* CKNCommentViewController.m */; };
 		E98A32B61C87D344001DE4FD /* CKNCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E98A32B41C87D344001DE4FD /* CKNCommentTableViewCell.m */; };
 		E98A32B71C87D344001DE4FD /* CKNCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E98A32B51C87D344001DE4FD /* CKNCommentTableViewCell.xib */; };
+		E98A32BA1C87FE09001DE4FD /* CKNHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E98A32B91C87FE09001DE4FD /* CKNHeaderView.m */; };
+		E98A32BC1C87FE1A001DE4FD /* CKNHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E98A32BB1C87FE1A001DE4FD /* CKNHeaderView.xib */; };
 		E9E3FB231C86784100254C29 /* CKNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E3FB221C86784100254C29 /* CKNDetailViewController.m */; };
 		E9FB9ACA1C85616B00A06F37 /* YZDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FB9AC21C85616B00A06F37 /* YZDisplayViewController.m */; };
 		E9FB9ACB1C85616B00A06F37 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FB9AC41C85616B00A06F37 /* UIView+Frame.m */; };
@@ -93,6 +95,9 @@
 		E98A32B31C87D344001DE4FD /* CKNCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKNCommentTableViewCell.h; path = ConsultNews/News/Controller/CKNCommentTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		E98A32B41C87D344001DE4FD /* CKNCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKNCommentTableViewCell.m; path = ConsultNews/News/Controller/CKNCommentTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		E98A32B51C87D344001DE4FD /* CKNCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CKNCommentTableViewCell.xib; path = ConsultNews/News/Controller/CKNCommentTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		E98A32B81C87FE09001DE4FD /* CKNHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKNHeaderView.h; path = ConsultNews/News/Controller/CKNHeaderView.h; sourceTree = SOURCE_ROOT; };
+		E98A32B91C87FE09001DE4FD /* CKNHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKNHeaderView.m; path = ConsultNews/News/Controller/CKNHeaderView.m; sourceTree = SOURCE_ROOT; };
+		E98A32BB1C87FE1A001DE4FD /* CKNHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CKNHeaderView.xib; path = ConsultNews/News/Controller/CKNHeaderView.xib; sourceTree = SOURCE_ROOT; };
 		E9E3FB211C86784100254C29 /* CKNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNDetailViewController.h; sourceTree = "<group>"; };
 		E9E3FB221C86784100254C29 /* CKNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNDetailViewController.m; sourceTree = "<group>"; };
 		E9FB9AC11C85616B00A06F37 /* YZDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayViewController.h; sourceTree = "<group>"; };
@@ -308,6 +313,9 @@
 				E98A32B31C87D344001DE4FD /* CKNCommentTableViewCell.h */,
 				E98A32B41C87D344001DE4FD /* CKNCommentTableViewCell.m */,
 				E98A32B51C87D344001DE4FD /* CKNCommentTableViewCell.xib */,
+				E98A32B81C87FE09001DE4FD /* CKNHeaderView.h */,
+				E98A32B91C87FE09001DE4FD /* CKNHeaderView.m */,
+				E98A32BB1C87FE1A001DE4FD /* CKNHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -528,6 +536,7 @@
 			files = (
 				E92D35721C853817000E3C18 /* My.storyboard in Resources */,
 				E9FB9AEE1C856FBB00A06F37 /* CKNNewsTableViewCell.xib in Resources */,
+				E98A32BC1C87FE1A001DE4FD /* CKNHeaderView.xib in Resources */,
 				E92D35631C853724000E3C18 /* News.storyboard in Resources */,
 				E92D35681C8537AB000E3C18 /* Video.storyboard in Resources */,
 				E98A32B71C87D344001DE4FD /* CKNCommentTableViewCell.xib in Resources */,
@@ -605,6 +614,7 @@
 				E9FB9AF91C85841500A06F37 /* SDCollectionViewCell.m in Sources */,
 				E92D35191C852D40000E3C18 /* AppDelegate.m in Sources */,
 				E9FB9AE91C85633900A06F37 /* CKNChildViewController.m in Sources */,
+				E98A32BA1C87FE09001DE4FD /* CKNHeaderView.m in Sources */,
 				E92D35661C8537A0000E3C18 /* CKNVideoViewController.m in Sources */,
 				E9FB9ACD1C85616B00A06F37 /* YZFlowLayout.m in Sources */,
 				E9FB9B051C85842200A06F37 /* TAAnimatedDotView.m in Sources */,

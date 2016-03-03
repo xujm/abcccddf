@@ -8,6 +8,7 @@
 
 #import "CKNCommentViewController.h"
 #import "CKNCommentTableViewCell.h"
+#import "CKNHeaderView.h"
 
 static NSString * const kCKNCommentTableViewCell = @"CKNCommentTableViewCell";
 
@@ -25,7 +26,6 @@ static NSString * const kCKNCommentTableViewCell = @"CKNCommentTableViewCell";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CKNCommentTableViewCell" bundle:nil] forCellReuseIdentifier:kCKNCommentTableViewCell];
     self.tableView.rowHeight = 60;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //注册点击事件，点击背景，隐藏键盘
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose)];
@@ -81,8 +81,17 @@ static NSString * const kCKNCommentTableViewCell = @"CKNCommentTableViewCell";
     [self.view endEditing:YES];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (section == 0) {
+        return 1;
+        
+    }
     return 20;
 }
 
@@ -92,6 +101,18 @@ static NSString * const kCKNCommentTableViewCell = @"CKNCommentTableViewCell";
     CKNCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCKNCommentTableViewCell forIndexPath:indexPath];
     
     return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CKNHeaderView *view = [[[NSBundle mainBundle] loadNibNamed:@"CKNHeaderView" owner:self options:nil] firstObject];
+    if (section == 0) {
+        view.textLabel.text = @"热门评论";
+    } else {
+        view.textLabel.text = @"最新评论";
+    }
+    
+    return view;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
