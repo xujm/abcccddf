@@ -19,6 +19,10 @@
 
 @property (weak, nonatomic) IBOutlet UIView *commentView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *width;
+
+@property (weak, nonatomic) IBOutlet UIView *cView;
+
 @end
 
 @implementation CKNDetailViewController
@@ -49,6 +53,9 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn addTarget:self action:@selector(goComment) forControlEvents:UIControlEventTouchUpInside];
     [btn setBackgroundImage:[UIImage imageNamed:@"channel_open_icon"] forState:UIControlStateNormal];
+    [btn setTitle:@" 584412跟帖 " forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:12.f];
+    
     [btn sizeToFit];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
@@ -57,6 +64,14 @@
     self.commentView.userInteractionEnabled = YES;
     [self.commentView addGestureRecognizer:tap];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+}
+
 
 - (void)goComment
 {
@@ -81,11 +96,12 @@
     double offsetY = keyboardBoundsRect.size.height;
     //得到键盘动画的曲线信息，按原作的话说“此处是难点”，stackoverflow网站里找到的
     UIViewAnimationOptions options = [dict[UIKeyboardAnimationCurveUserInfoKey] integerValue] << 16;
+    _cView.hidden = NO;
     //添加动画
     [UIView animateWithDuration:duration delay:0 options:options animations:^{
-        _textView.transform = CGAffineTransformMakeTranslation(0, -offsetY);
+        _cView.transform = CGAffineTransformMakeTranslation(0, -offsetY);
     } completion:^(BOOL finished) {
-        self.sendBtn.enabled = YES;
+        //self.sendBtn.enabled = YES;
     }];
     
 }
@@ -96,11 +112,12 @@
     NSDictionary *dict = info.userInfo;
     double duration = [dict[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationOptions options = [dict[UIKeyboardAnimationCurveUserInfoKey] integerValue] << 16;
+    _cView.hidden = YES;
     //CGAffineTransformIdentity是置位，可将改变的transform还原
     [UIView animateWithDuration:duration delay:0 options:options animations:^{
-        _textView.transform = CGAffineTransformIdentity;
+        _cView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        self.sendBtn.enabled = NO;
+        //self.sendBtn.enabled = NO;
     }];
 }
 

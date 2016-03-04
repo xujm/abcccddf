@@ -21,9 +21,6 @@
 //    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
 //                                                 }];
     
-    //导航栏背景色
-    self.navigationBar.barTintColor = UIColorFromRGB(0xcc3333);
-    
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.delegate = self;
     }

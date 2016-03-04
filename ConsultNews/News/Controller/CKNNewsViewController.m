@@ -20,6 +20,9 @@
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"FeedTitleImage"]];
     
+    //导航栏背景色
+    //self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0xcc3333);
+    
     UIBarButtonItem *searchItem = ({
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"half_rectangle_button_search"] style:UIBarButtonItemStylePlain target:self action:@selector(search)];
         item.tintColor = [UIColor whiteColor];
@@ -48,6 +51,13 @@
         // 字体缩放比例
         *titleScale = 1.2;
     }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0xcc3333);
 }
 
 #pragma mark - 搜索
